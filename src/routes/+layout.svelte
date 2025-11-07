@@ -1,11 +1,20 @@
 <script lang="ts">
 	import logo from "$assets/ma-sil.png";
     import Header from "$components/header.svelte";
+    import Loading from "$components/loading.svelte";
+    import unityStore from "$stores/unityStore";
+	import initWindowFunctions from "$utils/unityInterface";
+    import { onMount } from "svelte";
 	
 
 
 
 	let { children } = $props();
+
+
+	onMount(() => {
+		initWindowFunctions();
+	});
 </script>
 
 
@@ -23,6 +32,10 @@
 		{@render children()}
 	</div>
 </main>
+
+{#if !$unityStore.loadState}
+<Loading />
+{/if}
 
 
 
