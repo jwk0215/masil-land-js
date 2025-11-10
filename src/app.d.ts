@@ -5,14 +5,17 @@ declare global {
 		// 유니티 로드 완료 시 실행될 함수
 		onUnityLoaded: () => void;
 
-		// 유니티에서 학습 맵 요청 함수
-		openStudyMap: () => void;
+		// 씬 로드 완료 시 실행될 함수
+		sceneLoaded: () => void;
+
+		// 유니티에서 포탈에 접촉 시 실행될 함수
+		portalEnter: (targetPortalName: string) => void;
 	}
 	
 
 	// UNITY INSTANCE
 	interface UnityInstance {
-		SendMessage(gameObject: string, methodName: string, value?: any): void;
+		SendMessage(gameObject: string, methodName: string, value?: string): void;
         SetFullscreen(flag: boolean): void;
         Quit(): Promise<void>;
 	}

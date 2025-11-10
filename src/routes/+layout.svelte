@@ -2,19 +2,15 @@
 	import logo from "$assets/ma-sil.png";
     import Header from "$components/header.svelte";
     import Loading from "$components/loading.svelte";
+    import StudyMap from "$components/studyMap.svelte";
+    import studyStore from "$stores/studyStore";
     import unityStore from "$stores/unityStore";
-	import initWindowFunctions from "$utils/unityInterface";
-    import { onMount } from "svelte";
 	
 
 
 
+	// props
 	let { children } = $props();
-
-
-	onMount(() => {
-		initWindowFunctions();
-	});
 </script>
 
 
@@ -40,6 +36,7 @@
 
 
 
+
 <style>
 	#layout {
 		width: 100%;
@@ -52,6 +49,7 @@
 			"page";
 	}
 	#page {
+		position: relative;
 		grid-area: page;
 		overflow: hidden;
 	}
